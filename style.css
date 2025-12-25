@@ -1,0 +1,156 @@
+/* ---------------- Body & Background ---------------- */
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+.cute-bg {
+  background: linear-gradient(#fff2f7, #ffe6ef);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* ---------------- Snow ---------------- */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, white 2px, transparent 2px),
+    radial-gradient(circle, white 3px, transparent 3px),
+    radial-gradient(circle, white 1.5px, transparent 1.5px);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  animation: snowFall 10s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes snowFall {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 0 1000px, 0 800px, 0 600px; }
+}
+
+/* ---------------- Floating Cats ---------------- */
+.floating-cat {
+  position: absolute;
+  opacity: 0.9;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+.bottom-left { bottom: 20px; left: 20px; }
+.bottom-right { bottom: 20px; right: 20px; }
+
+/* ---------------- Paw Print ---------------- */
+.paw-print {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('paw.png') no-repeat center/contain;
+  pointer-events: none;
+  animation: pawFloat 1s ease-out forwards;
+}
+
+@keyframes pawFloat {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+}
+
+/* ---------------- Index Page Styles ---------------- */
+.index-page .card {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 25px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border: 2px dashed #ffb6c1;
+  margin: auto;
+  top: 50%;
+  transform: translateY(50%);
+}
+
+.index-page .gift-img {
+  width: 50%;
+  max-width: 160px;
+}
+
+.index-page button {
+  background: #ffb6c1;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto 0;
+}
+
+.index-page button:hover {
+  background: #ffa3b4;
+  transform: scale(1.05);
+}
+
+/* ---------------- Card Page Styles ---------------- */
+.card-page .message-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 35px;
+  border-radius: 25px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+.card-page .bow { font-size: 32px; margin-bottom: 10px; }
+
+.card-page .sparkle:hover {
+  box-shadow: 0 0 15px rgba(255,182,193,0.8), 0 0 25px rgba(173,216,230,0.6);
+  transform: scale(1.02);
+}
+
+.card-page .middle-cat {
+  position: absolute;
+  width: 90px;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  animation: float 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+.card-page .middle-cat.left { left: 20px; }
+.card-page .middle-cat.right { right: 20px; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 500px) {
+  .floating-cat, .card-page .middle-cat { width: 50px; }
+  .index-page .gift-img { width: 60%; }
+  .index-page .card, .card-page .message-card { padding: 20px; }
+  .index-page button { font-size: 16px; padding: 10px 20px; }
+  .card-page .bow { font-size: 24px; }
+}

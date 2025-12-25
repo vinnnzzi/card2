@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Merry Christmas 🎄</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cute-bg card-page">
+
+  <!-- Snow -->
+  <div class="snow"></div>
+
+  <!-- Floating corner cats -->
+  <img src="cs3.jpg" class="floating-cat top-left">
+  <img src="cs5.jpg" class="floating-cat top-right">
+  <img src="cs4.jpg" class="floating-cat bottom-left">
+  <img src="cs2.jpg" class="floating-cat bottom-right">
+
+  <!-- Middle left and right decorations -->
+  <img src="cat-left.png" class="middle-cat left">
+  <img src="cat-right.png" class="middle-cat right">
+
+  <!-- Card -->
+  <div class="message-card sparkle" id="card">
+    <div class="bow">🎀</div>
+    <h1>Merry Christmas 🎄</h1>
+    <p>
+     MEOW :3  💕<br>
+      I'm sorry I couldn't give you anything physical again and had to resort to coding, but I hope you enjoy this little thing I got you. I know I've been lacking a lot in terms of your feelings and wants and int the guture I would want to get better and not let you worry about anything. And in the future I will try my best to make you happy. Hope this Christmas onward, everything will go a lot more smoother. Lastly, thank you for everything that you have done for me for the past year, I really mean it, you have given me so much in terms of happiness and stuff and whatever you had made my life better. I LOVE YOU<br><br>
+      MEOWIE CHWIZZMASS - vinnz 🐱✨
+    </p>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="music" src="music.mp3" loop></audio>
+  <audio id="meow" src="meow.mp3"></audio>
+
+  <script>
+    window.onload = () => {
+      document.getElementById("music").play();
+      document.getElementById("meow").play();
+    };
+
+    const card = document.getElementById("card");
+    card.addEventListener("click", (e) => {
+      const paw = document.createElement("div");
+      paw.className = "paw-print";
+      paw.style.left = e.offsetX + "px";
+      paw.style.top = e.offsetY + "px";
+      card.appendChild(paw);
+      setTimeout(() => paw.remove(), 1000);
+    });
+  </script>
+
+</body>
+</html>
+
+
